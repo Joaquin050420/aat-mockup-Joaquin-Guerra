@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuarta y Corta — Pronósticos de la NFL con datos, no con corazonadas</title>
+<style>
+  :root{
+    --pizarra:#24303A;
+    --pizarra-hondo:#1A242C;
+    --cancha:#E4E7E2;
+    --gis:#F3F1EA;
+    --balon:#A6402A;
+    --verde:#1E6F5C;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cancha);
+    color:var(--pizarra-hondo);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:17px;
+    line-height:1.65;
+  }
+  :focus-visible{outline:3px solid var(--balon);outline-offset:3px;}
+
+  .titular{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;
+    letter-spacing:-.015em;
+  }
+
+  .barra{
+    background:var(--pizarra);
+    border-bottom:3px solid var(--balon);
+    position:sticky;top:0;z-index:10;
+  }
+  .barra-int{
+    max-width:1060px;margin:0 auto;padding:14px 24px;
+    display:flex;flex-wrap:wrap;gap:10px 28px;
+    align-items:baseline;justify-content:space-between;
+  }
+  .marca{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:1.55rem;letter-spacing:.01em;
+    color:var(--gis);text-decoration:none;
+  }
+  .marca em{font-style:normal;color:var(--balon);}
+  .barra nav{display:flex;gap:26px;}
+  .barra nav a{
+    color:#C3CBD1;text-decoration:none;font-family:Arial,sans-serif;
+    font-size:.92rem;padding-bottom:3px;border-bottom:2px solid transparent;
+  }
+  .barra nav a:hover{color:var(--gis);border-bottom-color:var(--balon);}
+
+  .hero{
+    background:var(--pizarra);
+    background-image:repeating-linear-gradient(
+      to right,
+      rgba(243,241,234,.10) 0 1px,
+      transparent 1px 68px
+    );
+    color:var(--gis);
+  }
+  .hero-int{max-width:1060px;margin:0 auto;padding:96px 24px 104px;}
+  .hero h1{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;
+    font-size:clamp(2.5rem,7vw,4.6rem);
+    line-height:1.02;letter-spacing:-.02em;
+    margin:0 0 22px;max-width:16ch;
+  }
+  .hero h1 .yarda{color:var(--balon);}
+  .hero p{max-width:54ch;font-size:1.1rem;color:#C3CBD1;margin:0 0 38px;}
+  .boton{
+    display:inline-block;background:var(--balon);color:var(--gis);
+    font-family:Arial,sans-serif;font-weight:700;font-size:1rem;
+    text-decoration:none;padding:16px 32px;border:0;border-radius:2px;
+  }
+  .boton:hover{background:#8C351F;}
+
+  .planes{max-width:1060px;margin:0 auto;padding:82px 24px;}
+  .planes h2{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
+  }
+  .planes > p{margin:0 0 40px;max-width:58ch;color:#4E5860;}
+  .tarjetas{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;
+  }
+  .tarjeta{
+    background:#fff;border:1px solid #C6CCC7;
+    border-top:5px solid var(--pizarra);
+    border-radius:2px;padding:28px 26px 30px;
+  }
+  .tarjeta h3{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:1.4rem;margin:0 0 6px;color:var(--pizarra);
+  }
+  .dato{
+    display:block;font-family:Arial,sans-serif;font-weight:700;
+    font-size:1.05rem;color:var(--verde);margin-bottom:14px;
+  }
+  .tarjeta p{margin:0;font-size:.97rem;color:#4E5860;}
+
+  .pie{background:var(--pizarra-hondo);color:#A9B2B8;border-top:3px solid var(--balon);}
+  .pie-int{max-width:1060px;margin:0 auto;padding:56px 24px;}
+  .pie h2{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:1.5rem;color:var(--gis);margin:0 0 10px;
+  }
+  .pie p{margin:0 0 10px;max-width:52ch;font-size:.95rem;}
+  .aviso{color:#8A939A;font-size:.88rem;}
+  .derechos{
+    margin-top:30px;padding-top:20px;border-top:1px solid #39434A;
+    font-size:.85rem;color:#79828A;
+  }
+
+  @media (max-width:520px){
+    .hero-int{padding:64px 20px 72px;}
+    .barra nav{gap:18px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="barra-int">
+    <a class="marca" href="#inicio">Cuarta y <em>Corta</em></a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#pronosticos">Pronósticos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-int">
+    <h1>Deja de apostar por <span class="yarda">corazonada</span></h1>
+    <p>Cada martes recibes los 16 partidos de la semana con su probabilidad calculada a partir de estadísticas, reporte de lesiones y cómo se ha movido la línea desde que abrió.</p>
+    <a class="boton" href="#pronosticos">Ver los pronósticos de esta semana</a>
+  </div>
+</section>
+
+<main class="planes" id="pronosticos">
+  <h2>Qué incluye tu cuenta</h2>
+  <p>El modelo se entrena con las últimas diez temporadas y se recalcula cada vez que cambia algo importante. Ningún pronóstico garantiza un resultado.</p>
+
+  <div class="tarjetas">
+    <article class="tarjeta">
+      <h3>Pronóstico semanal</h3>
+      <span class="dato">$149 al mes</span>
+      <p>Los partidos del domingo con probabilidad de ganador, línea sugerida y las tres variables que más pesaron en el cálculo.</p>
+    </article>
+
+    <article class="tarjeta">
+      <h3>Alerta de línea</h3>
+      <span class="dato">$99 al mes</span>
+      <p>Aviso al celular cuando una línea se mueve más de un punto y medio, con la explicación de qué la movió.</p>
+    </article>
+
+    <article class="tarjeta">
+      <h3>Reporte de lesiones</h3>
+      <span class="dato">Incluido en ambos planes</span>
+      <p>El parte oficial de cada equipo traducido al español y en contexto: qué tanto cambia el pronóstico si ese jugador no sale al campo.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="pie" id="contacto">
+  <div class="pie-int">
+    <h2>Contacto</h2>
+    <p>Escríbenos a hola@cuartaycorta.mx o al 55 1234 5678. Respondemos de lunes a viernes.</p>
+    <p class="aviso">Cuarta y Corta ofrece análisis estadístico, no consejos de inversión ni resultados garantizados. Solo para mayores de 18 años. Si sientes que apostar dejó de ser un pasatiempo, en México puedes llamar a Jugadores Anónimos al 55 5273 0656.</p>
+    <p class="derechos">© 2026 Cuarta y Corta. Todos los derechos reservados. Proyecto de práctica.</p>
+  </div>
+</footer>
+
+</body>
+</html>
