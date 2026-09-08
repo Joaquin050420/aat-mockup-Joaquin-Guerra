@@ -25,12 +25,6 @@
   }
   :focus-visible{outline:3px solid var(--balon);outline-offset:3px;}
 
-  .titular{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;
-    letter-spacing:-.015em;
-  }
-
   .barra{
     background:var(--pizarra);
     border-bottom:3px solid var(--balon);
@@ -80,6 +74,40 @@
   }
   .boton:hover{background:#8C351F;}
 
+  .historial{
+    background:#fff;
+    border-bottom:1px solid #C6CCC7;
+  }
+  .historial-int{max-width:1060px;margin:0 auto;padding:64px 24px 58px;}
+  .historial h2{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
+  }
+  .historial > p{margin:0 0 34px;max-width:60ch;color:#4E5860;}
+  .temporadas{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:0;border-top:2px solid var(--pizarra);
+  }
+  .temporada{
+    padding:22px 22px 24px 0;
+    border-right:1px solid #D4D9D5;
+  }
+  .temporada:last-child{border-right:0;}
+  .temporada .anio{
+    font-family:Arial,sans-serif;font-size:.9rem;color:#6B747B;margin:0 0 4px;
+  }
+  .temporada .pct{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:3.1rem;line-height:1;color:var(--balon);
+    letter-spacing:-.02em;margin:0 0 6px;
+  }
+  .temporada .detalle{margin:0;font-size:.93rem;color:#4E5860;}
+  .equilibrio{
+    margin:30px 0 0;padding:16px 20px;
+    background:var(--cancha);border-left:4px solid var(--verde);
+    font-size:.95rem;color:#3C464D;max-width:64ch;
+  }
+
   .planes{max-width:1060px;margin:0 auto;padding:82px 24px;}
   .planes h2{
     font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
@@ -120,6 +148,8 @@
   @media (max-width:520px){
     .hero-int{padding:64px 20px 72px;}
     .barra nav{gap:18px;}
+    .temporada{border-right:0;border-bottom:1px solid #D4D9D5;padding-right:0;}
+    .temporada:last-child{border-bottom:0;}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
@@ -140,8 +170,35 @@
 <section class="hero" id="inicio">
   <div class="hero-int">
     <h1>Deja de apostar por <span class="yarda">corazonada</span></h1>
-    <p>Cada martes recibes los 16 partidos de la semana con su probabilidad calculada a partir de estadísticas, reporte de lesiones y cómo se ha movido la línea desde que abrió.</p>
+    <p>Cada martes recibes los partidos de la semana con su probabilidad calculada a partir de estadísticas, reporte de lesiones y cómo se ha movido la línea desde que abrió.</p>
     <a class="boton" href="#pronosticos">Ver los pronósticos de esta semana</a>
+  </div>
+</section>
+
+<section class="historial">
+  <div class="historial-int">
+    <h2>Cómo nos ha ido</h2>
+    <p>Publicamos el resultado de cada pronóstico, le atinemos o no. Estos son los tres años completos del modelo contra la línea de apertura.</p>
+
+    <div class="temporadas">
+      <div class="temporada">
+        <p class="anio">Temporada 2023</p>
+        <p class="pct">54.1%</p>
+        <p class="detalle">147 aciertos de 272 partidos</p>
+      </div>
+      <div class="temporada">
+        <p class="anio">Temporada 2024</p>
+        <p class="pct">55.3%</p>
+        <p class="detalle">150 aciertos de 272 partidos</p>
+      </div>
+      <div class="temporada">
+        <p class="anio">Temporada 2025</p>
+        <p class="pct">53.2%</p>
+        <p class="detalle">145 aciertos de 272 partidos</p>
+      </div>
+    </div>
+
+    <p class="equilibrio">Un modelo necesita acertar 52.4% para salir tablas después de la comisión de la casa. Por eso no vas a ver aquí promesas de 70%: quien las hace, no está midiendo lo mismo.</p>
   </div>
 </section>
 
@@ -175,7 +232,7 @@
     <h2>Contacto</h2>
     <p>Escríbenos a hola@cuartaycorta.mx o al 55 1234 5678. Respondemos de lunes a viernes.</p>
     <p class="aviso">Cuarta y Corta ofrece análisis estadístico, no consejos de inversión ni resultados garantizados. Solo para mayores de 18 años. Si sientes que apostar dejó de ser un pasatiempo, en México puedes llamar a Jugadores Anónimos al 55 5273 0656.</p>
-    <p class="derechos">© 2026 Cuarta y Corta. Todos los derechos reservados. Proyecto de práctica.</p>
+    <p class="derechos">© 2026 Cuarta y Corta. Todos los derechos reservados. Proyecto de práctica: los porcentajes de acierto y los precios son ilustrativos, no corresponden a un servicio real.</p>
   </div>
 </footer>
 
