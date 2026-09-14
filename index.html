@@ -74,6 +74,59 @@
   }
   .boton:hover{background:#8C351F;}
 
+  .muestra{
+    background:var(--cancha);
+    border-bottom:1px solid #C6CCC7;
+  }
+  .muestra-int{max-width:1060px;margin:0 auto;padding:66px 24px 70px;}
+  .muestra h2{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
+  }
+  .muestra > .muestra-int > p{margin:0 0 32px;max-width:58ch;color:#4E5860;}
+  .boleta{
+    background:#fff;border:1px solid #C6CCC7;
+    border-top:5px solid var(--balon);border-radius:2px;
+    max-width:660px;padding:26px 28px 28px;
+  }
+  .boleta-encabezado{
+    display:flex;justify-content:space-between;gap:12px;
+    font-family:Arial,sans-serif;font-size:.85rem;color:#6B747B;
+    border-bottom:1px solid #D4D9D5;padding-bottom:12px;margin-bottom:20px;
+  }
+  .fila{display:flex;align-items:baseline;justify-content:space-between;gap:14px;}
+  .equipo{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:1.5rem;color:var(--pizarra);
+  }
+  .prob{
+    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
+    font-weight:700;font-size:1.5rem;color:#6B747B;
+  }
+  .favorito .prob{color:var(--balon);}
+  .riel{height:10px;background:#E4E7E2;margin:8px 0 18px;}
+  .riel i{display:block;height:100%;background:#9AA4AB;}
+  .riel.destacado i{background:var(--balon);}
+  .linea{
+    background:var(--cancha);border-left:4px solid var(--verde);
+    padding:14px 18px;margin:4px 0 24px;font-size:.93rem;color:#3C464D;
+  }
+  .rotulo{
+    font-family:Arial,sans-serif;font-size:.8rem;color:#6B747B;
+    margin:0 0 6px;
+  }
+  .variables{list-style:none;margin:0;padding:0;border-top:1px solid #D4D9D5;}
+  .variables li{
+    display:flex;justify-content:space-between;gap:18px;
+    padding:11px 0;border-bottom:1px solid #EAEDEA;font-size:.95rem;color:#3C464D;
+  }
+  .variables li:last-child{border-bottom:0;}
+  .peso{
+    font-family:Arial,sans-serif;font-weight:700;font-size:.88rem;
+    color:var(--verde);white-space:nowrap;
+  }
+  .nota-muestra{margin:18px 0 0;font-size:.86rem;color:#6B747B;}
+
   .historial{
     background:#fff;
     border-bottom:1px solid #C6CCC7;
@@ -162,6 +215,7 @@
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#pronosticos">Pronósticos</a>
+      <a href="#planes">Planes</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -172,6 +226,43 @@
     <h1>Deja de apostar por <span class="yarda">corazonada</span></h1>
     <p>Cada martes recibes los partidos de la semana con su probabilidad calculada a partir de estadísticas, reporte de lesiones y cómo se ha movido la línea desde que abrió.</p>
     <a class="boton" href="#pronosticos">Ver los pronósticos de esta semana</a>
+  </div>
+</section>
+
+<section class="muestra" id="pronosticos">
+  <div class="muestra-int">
+    <h2>Así se ve un pronóstico</h2>
+    <p>Este es el formato que recibes cada martes, uno por cada partido de la jornada.</p>
+
+    <div class="boleta">
+      <div class="boleta-encabezado">
+        <span>Semana 3</span>
+        <span>Domingo 12:00</span>
+      </div>
+
+      <div class="fila favorito">
+        <span class="equipo">Kansas City</span>
+        <span class="prob">63%</span>
+      </div>
+      <div class="riel destacado"><i style="width:63%"></i></div>
+
+      <div class="fila">
+        <span class="equipo">Buffalo</span>
+        <span class="prob">37%</span>
+      </div>
+      <div class="riel"><i style="width:37%"></i></div>
+
+      <p class="linea">La línea abrió en Kansas City −2.5 y hoy está en −4. El modelo la calcula en −3, así que a este precio el valor está del lado de Buffalo.</p>
+
+      <p class="rotulo">Todo partido empieza en 50%. Esto es lo que movió el resto:</p>
+      <ul class="variables">
+        <li><span>Kansas City promedia 6.8 yardas por jugada en tercera y larga</span><span class="peso">+6.1%</span></li>
+        <li><span>Buffalo reporta a su esquinero titular como duda</span><span class="peso">+3.4%</span></li>
+        <li><span>Buffalo jugó el jueves: tres días menos de descanso</span><span class="peso">+2.8%</span></li>
+      </ul>
+
+      <p class="nota-muestra">Partido y cifras ilustrativos para este mockup.</p>
+    </div>
   </div>
 </section>
 
@@ -202,7 +293,7 @@
   </div>
 </section>
 
-<main class="planes" id="pronosticos">
+<main class="planes" id="planes">
   <h2>Qué incluye tu cuenta</h2>
   <p>El modelo se entrena con las últimas diez temporadas y se recalcula cada vez que cambia algo importante. Ningún pronóstico garantiza un resultado.</p>
 
