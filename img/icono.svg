@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0F5132"/>
+  <!-- balón -->
+  <g transform="rotate(-35 256 276)">
+    <ellipse cx="256" cy="276" rx="170" ry="104" fill="#FFFFFF"/>
+    <rect x="166" y="266" width="180" height="20" rx="10" fill="#0F5132"/>
+    <rect x="186" y="244" width="14" height="64" rx="7" fill="#0F5132"/>
+    <rect x="226" y="244" width="14" height="64" rx="7" fill="#0F5132"/>
+    <rect x="272" y="244" width="14" height="64" rx="7" fill="#0F5132"/>
+    <rect x="312" y="244" width="14" height="64" rx="7" fill="#0F5132"/>
+  </g>
+  <!-- flecha hacia arriba -->
+  <path d="M352 64 L432 160 L384 160 L384 236 L320 236 L320 160 L272 160 Z" fill="#F2B705" stroke="#0F5132" stroke-width="14" stroke-linejoin="round"/>
+</svg>

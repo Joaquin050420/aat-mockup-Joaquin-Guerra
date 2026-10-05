@@ -1,331 +1,369 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cuarta y Corta — Pronósticos de la NFL con datos, no con corazonadas</title>
+<title>Cuarta y Corta · Pronósticos NFL con datos</title>
+<meta name="description" content="Probabilidades de cada partido de la NFL calculadas con momios, reporte de lesiones y descanso. Se actualiza cada martes, en español.">
+<meta name="theme-color" content="#0B1410">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icono-32.png">
+<link rel="icon" type="image/svg+xml" href="img/icono.svg">
+<link rel="apple-touch-icon" href="img/icono-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cuarta y Corta · Pronósticos NFL con datos">
+<meta property="og:description" content="Cada martes: la probabilidad de cada partido según momios, lesiones y descanso. En español, para el aficionado mexicano.">
+<meta property="og:image" content="https://aat-mockup-joaquin-guerra.vercel.app/img/og.png">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --pizarra:#24303A;
-    --pizarra-hondo:#1A242C;
-    --cancha:#E4E7E2;
-    --gis:#F3F1EA;
-    --balon:#A6402A;
-    --verde:#1E6F5C;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cancha);
-    color:var(--pizarra-hondo);
-    font-family:Georgia,"Times New Roman",serif;
-    font-size:17px;
-    line-height:1.65;
-  }
-  :focus-visible{outline:3px solid var(--balon);outline-offset:3px;}
+:root{
+  --fondo:#0B1410; --fondo-2:#101C16; --tarjeta:#14231C; --borde:#22362C;
+  --verde:#0F5132; --verde-vivo:#1F9D63; --oro:#F2B705; --oro-suave:rgba(242,183,5,.12);
+  --texto:#EEF3EF; --texto-2:#A9B8AF; --texto-3:#6F8279; --rojo:#E5675A;
+  --radio:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oro);outline-offset:3px;border-radius:4px}
+.cont{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.cond{font-family:"Barlow Condensed",Inter,sans-serif;letter-spacing:.01em}
 
-  .barra{
-    background:var(--pizarra);
-    border-bottom:3px solid var(--balon);
-    position:sticky;top:0;z-index:10;
-  }
-  .barra-int{
-    max-width:1060px;margin:0 auto;padding:14px 24px;
-    display:flex;flex-wrap:wrap;gap:10px 28px;
-    align-items:baseline;justify-content:space-between;
-  }
-  .marca{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:1.55rem;letter-spacing:.01em;
-    color:var(--gis);text-decoration:none;
-  }
-  .marca em{font-style:normal;color:var(--balon);}
-  .barra nav{display:flex;gap:26px;}
-  .barra nav a{
-    color:#C3CBD1;text-decoration:none;font-family:Arial,sans-serif;
-    font-size:.92rem;padding-bottom:3px;border-bottom:2px solid transparent;
-  }
-  .barra nav a:hover{color:var(--gis);border-bottom-color:var(--balon);}
+/* barra */
+.barra{position:sticky;top:0;z-index:20;background:rgba(11,20,16,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
+.barra .cont{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.45rem/1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.marca img{width:34px;height:34px;border-radius:8px}
+.marca span em{font-style:normal;color:var(--oro)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;color:var(--texto-2);font-size:.92rem;font-weight:500}
+.nav a:hover{color:var(--texto)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--oro);color:#1A1400;font-weight:700;font-size:.95rem;text-decoration:none;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(242,183,5,.25)}
+.btn.sec{background:transparent;color:var(--texto);border:1px solid var(--borde)}
+.btn.sec:hover{border-color:var(--texto-3);box-shadow:none}
+.nav .btn{padding:9px 18px;font-size:.88rem;color:#1A1400}
+@media (max-width:820px){.nav a:not(.btn){display:none}}
+.marca,.btn{white-space:nowrap}
+@media (max-width:420px){.barra .cont{gap:8px}.marca{font-size:1.08rem;gap:7px}.marca img{width:30px;height:30px}.nav .btn{padding:8px 14px;font-size:.82rem}}
 
-  .hero{
-    background:var(--pizarra);
-    background-image:repeating-linear-gradient(
-      to right,
-      rgba(243,241,234,.10) 0 1px,
-      transparent 1px 68px
-    );
-    color:var(--gis);
-  }
-  .hero-int{max-width:1060px;margin:0 auto;padding:96px 24px 104px;}
-  .hero h1{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;
-    font-size:clamp(2.5rem,7vw,4.6rem);
-    line-height:1.02;letter-spacing:-.02em;
-    margin:0 0 22px;max-width:16ch;
-  }
-  .hero h1 .yarda{color:var(--balon);}
-  .hero p{max-width:54ch;font-size:1.1rem;color:#C3CBD1;margin:0 0 38px;}
-  .boton{
-    display:inline-block;background:var(--balon);color:var(--gis);
-    font-family:Arial,sans-serif;font-weight:700;font-size:1rem;
-    text-decoration:none;padding:16px 32px;border:0;border-radius:2px;
-  }
-  .boton:hover{background:#8C351F;}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--borde);
+  background:
+    radial-gradient(900px 400px at 85% -10%,rgba(31,157,99,.22),transparent 60%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 80px),
+    var(--fondo)}
+.hero .cont{padding:84px 20px 76px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.eti{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--oro);background:var(--oro-suave);border:1px solid rgba(242,183,5,.25);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+.eti i{width:7px;height:7px;border-radius:50%;background:var(--oro);box-shadow:0 0 0 4px rgba(242,183,5,.2)}
+.hero h1{font-size:clamp(2.7rem,6.5vw,4.6rem);line-height:.98;font-weight:800;text-transform:uppercase;margin:0 0 20px}
+.hero h1 b{color:var(--oro);font-weight:800}
+.hero p.sub{font-size:1.1rem;color:var(--texto-2);max-width:52ch;margin:0 0 30px}
+.acciones{display:flex;flex-wrap:wrap;gap:12px}
+.cifras{display:grid;gap:12px}
+.cifra{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:18px 20px}
+.cifra .n{font:800 2.4rem/1 "Barlow Condensed",sans-serif}
+.cifra .n.oro{color:var(--oro)}
+.cifra .l{color:var(--texto-2);font-size:.9rem;margin-top:4px}
+@media (max-width:820px){.hero .cont{grid-template-columns:1fr;padding:56px 20px 52px}.cifras{grid-template-columns:repeat(3,1fr)}.cifra{padding:14px}.cifra .n{font-size:1.9rem}.cifra .l{font-size:.78rem}}
 
-  .muestra{
-    background:var(--cancha);
-    border-bottom:1px solid #C6CCC7;
-  }
-  .muestra-int{max-width:1060px;margin:0 auto;padding:66px 24px 70px;}
-  .muestra h2{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
-  }
-  .muestra > .muestra-int > p{margin:0 0 32px;max-width:58ch;color:#4E5860;}
-  .boleta{
-    background:#fff;border:1px solid #C6CCC7;
-    border-top:5px solid var(--balon);border-radius:2px;
-    max-width:660px;padding:26px 28px 28px;
-  }
-  .boleta-encabezado{
-    display:flex;justify-content:space-between;gap:12px;
-    font-family:Arial,sans-serif;font-size:.85rem;color:#6B747B;
-    border-bottom:1px solid #D4D9D5;padding-bottom:12px;margin-bottom:20px;
-  }
-  .fila{display:flex;align-items:baseline;justify-content:space-between;gap:14px;}
-  .equipo{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:1.5rem;color:var(--pizarra);
-  }
-  .prob{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:1.5rem;color:#6B747B;
-  }
-  .favorito .prob{color:var(--balon);}
-  .riel{height:10px;background:#E4E7E2;margin:8px 0 18px;}
-  .riel i{display:block;height:100%;background:#9AA4AB;}
-  .riel.destacado i{background:var(--balon);}
-  .linea{
-    background:var(--cancha);border-left:4px solid var(--verde);
-    padding:14px 18px;margin:4px 0 24px;font-size:.93rem;color:#3C464D;
-  }
-  .rotulo{
-    font-family:Arial,sans-serif;font-size:.8rem;color:#6B747B;
-    margin:0 0 6px;
-  }
-  .variables{list-style:none;margin:0;padding:0;border-top:1px solid #D4D9D5;}
-  .variables li{
-    display:flex;justify-content:space-between;gap:18px;
-    padding:11px 0;border-bottom:1px solid #EAEDEA;font-size:.95rem;color:#3C464D;
-  }
-  .variables li:last-child{border-bottom:0;}
-  .peso{
-    font-family:Arial,sans-serif;font-weight:700;font-size:.88rem;
-    color:var(--verde);white-space:nowrap;
-  }
-  .nota-muestra{margin:18px 0 0;font-size:.86rem;color:#6B747B;}
+/* secciones */
+section{padding:76px 0}
+.cab{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.cab h2{font-size:clamp(2rem,4vw,2.7rem);line-height:1;text-transform:uppercase;margin:0 0 8px}
+.cab p{margin:0;color:var(--texto-2);max-width:60ch}
+.filtros{display:flex;gap:8px}
+.chip{background:var(--tarjeta);border:1px solid var(--borde);color:var(--texto-2);font:600 .85rem Inter,sans-serif;padding:8px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--texto);color:var(--fondo);border-color:var(--texto)}
 
-  .historial{
-    background:#fff;
-    border-bottom:1px solid #C6CCC7;
-  }
-  .historial-int{max-width:1060px;margin:0 auto;padding:64px 24px 58px;}
-  .historial h2{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
-  }
-  .historial > p{margin:0 0 34px;max-width:60ch;color:#4E5860;}
-  .temporadas{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-    gap:0;border-top:2px solid var(--pizarra);
-  }
-  .temporada{
-    padding:22px 22px 24px 0;
-    border-right:1px solid #D4D9D5;
-  }
-  .temporada:last-child{border-right:0;}
-  .temporada .anio{
-    font-family:Arial,sans-serif;font-size:.9rem;color:#6B747B;margin:0 0 4px;
-  }
-  .temporada .pct{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:3.1rem;line-height:1;color:var(--balon);
-    letter-spacing:-.02em;margin:0 0 6px;
-  }
-  .temporada .detalle{margin:0;font-size:.93rem;color:#4E5860;}
-  .equilibrio{
-    margin:30px 0 0;padding:16px 20px;
-    background:var(--cancha);border-left:4px solid var(--verde);
-    font-size:.95rem;color:#3C464D;max-width:64ch;
-  }
+/* tarjetas de partido */
+.partidos{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.partido{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:20px;display:flex;flex-direction:column;gap:14px}
+.partido.con-valor{border-color:rgba(242,183,5,.45);box-shadow:inset 0 3px 0 var(--oro)}
+.p-cab{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;color:var(--texto-3)}
+.p-cab b{color:var(--texto-2);font-weight:600}
+.equipo{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:4px 10px}
+.equipo .nom{font:700 1.4rem/1.1 "Barlow Condensed",sans-serif;text-transform:uppercase}
+.equipo .nom small{font:500 .78rem Inter,sans-serif;color:var(--texto-3);text-transform:none;margin-left:6px}
+.equipo .pct{font:800 1.6rem/1 "Barlow Condensed",sans-serif;color:var(--texto-2)}
+.equipo.fav .pct{color:var(--texto)}
+.riel{grid-column:1/-1;height:8px;border-radius:99px;background:#0E1914;overflow:hidden}
+.riel i{display:block;height:100%;border-radius:99px;background:#3A5246}
+.equipo.fav .riel i{background:linear-gradient(90deg,var(--verde-vivo),#5BD39A)}
+.mercado{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82rem;color:var(--texto-3);border-top:1px solid var(--borde);padding-top:12px}
+.mercado b{color:var(--texto-2);font-weight:600}
+.valor{display:flex;gap:10px;align-items:flex-start;background:var(--oro-suave);border:1px solid rgba(242,183,5,.3);border-radius:10px;padding:10px 12px;font-size:.86rem;color:#F7DE8C}
+.valor strong{color:var(--oro)}
+.factores{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.factores li{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--texto-2)}
+.factores li span:last-child{font-weight:700;white-space:nowrap}
+.mas{color:var(--verde-vivo)} .menos{color:var(--rojo)} .info{color:var(--texto-3)}
+.vacio{font-size:.85rem;color:var(--texto-3)}
+.cargando{color:var(--texto-3);padding:40px 0}
+.nota-semana{margin-top:18px;font-size:.85rem;color:var(--texto-3)}
 
-  .planes{max-width:1060px;margin:0 auto;padding:82px 24px;}
-  .planes h2{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:2.1rem;margin:0 0 8px;color:var(--pizarra);
-  }
-  .planes > p{margin:0 0 40px;max-width:58ch;color:#4E5860;}
-  .tarjetas{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;
-  }
-  .tarjeta{
-    background:#fff;border:1px solid #C6CCC7;
-    border-top:5px solid var(--pizarra);
-    border-radius:2px;padding:28px 26px 30px;
-  }
-  .tarjeta h3{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:1.4rem;margin:0 0 6px;color:var(--pizarra);
-  }
-  .dato{
-    display:block;font-family:Arial,sans-serif;font-weight:700;
-    font-size:1.05rem;color:var(--verde);margin-bottom:14px;
-  }
-  .tarjeta p{margin:0;font-size:.97rem;color:#4E5860;}
+/* método */
+.metodo{background:var(--fondo-2);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:p}
+.paso{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:24px}
+.paso::before{counter-increment:p;content:"0" counter(p);font:800 2rem/1 "Barlow Condensed",sans-serif;color:var(--oro);display:block;margin-bottom:12px}
+.paso h3{font-size:1.4rem;text-transform:uppercase;margin:0 0 8px}
+.paso p{margin:0;color:var(--texto-2);font-size:.95rem}
+@media (max-width:820px){.pasos{grid-template-columns:1fr}}
 
-  .pie{background:var(--pizarra-hondo);color:#A9B2B8;border-top:3px solid var(--balon);}
-  .pie-int{max-width:1060px;margin:0 auto;padding:56px 24px;}
-  .pie h2{
-    font-family:"Arial Narrow","Helvetica Neue Condensed",Arial,sans-serif;
-    font-weight:700;font-size:1.5rem;color:var(--gis);margin:0 0 10px;
-  }
-  .pie p{margin:0 0 10px;max-width:52ch;font-size:.95rem;}
-  .aviso{color:#8A939A;font-size:.88rem;}
-  .derechos{
-    margin-top:30px;padding-top:20px;border-top:1px solid #39434A;
-    font-size:.85rem;color:#79828A;
-  }
+/* historial */
+.hist{display:grid;grid-template-columns:.8fr 1.2fr;gap:16px}
+.hist .grande{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:28px}
+.hist .grande .n{font:800 4rem/1 "Barlow Condensed",sans-serif;color:var(--oro)}
+.hist .grande p{color:var(--texto-2);margin:8px 0 0}
+.tabla{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden}
+.tabla table{width:100%;border-collapse:collapse;font-size:.92rem}
+.tabla th,.tabla td{text-align:left;padding:12px 18px;border-bottom:1px solid var(--borde)}
+.tabla th{color:var(--texto-3);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.tabla tr:last-child td{border-bottom:0}
+.umbral{margin-top:16px;padding:14px 18px;border-left:3px solid var(--verde-vivo);background:var(--fondo-2);color:var(--texto-2);font-size:.92rem;border-radius:0 10px 10px 0}
+@media (max-width:820px){.hist{grid-template-columns:1fr}}
 
-  @media (max-width:520px){
-    .hero-int{padding:64px 20px 72px;}
-    .barra nav{gap:18px;}
-    .temporada{border-right:0;border-bottom:1px solid #D4D9D5;padding-right:0;}
-    .temporada:last-child{border-bottom:0;}
-  }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+/* planes */
+.planes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px}
+.plan{background:var(--tarjeta);border:1px solid var(--borde);border-radius:var(--radio);padding:28px;display:flex;flex-direction:column;gap:14px}
+.plan.dest{border-color:rgba(242,183,5,.5);background:linear-gradient(180deg,rgba(242,183,5,.07),transparent 40%),var(--tarjeta)}
+.plan .tag{align-self:flex-start;font-size:.75rem;font-weight:700;color:#1A1400;background:var(--oro);padding:4px 10px;border-radius:999px}
+.plan h3{font-size:1.6rem;text-transform:uppercase;margin:0}
+.plan .precio{font:800 2.6rem/1 "Barlow Condensed",sans-serif}
+.plan .precio small{font:500 .9rem Inter,sans-serif;color:var(--texto-3)}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--texto-2);font-size:.93rem}
+.plan li::before{content:"✓";color:var(--verde-vivo);font-weight:700;margin-right:8px}
+.plan .btn{margin-top:auto}
+.pago{font-size:.8rem;color:var(--texto-3);margin-top:14px}
+@media (max-width:720px){.planes{grid-template-columns:1fr}}
+
+/* pie */
+footer{border-top:1px solid var(--borde);padding:48px 0 40px;color:var(--texto-3);font-size:.88rem}
+footer .cont{display:grid;gap:14px}
+footer .marca{font-size:1.2rem;color:var(--texto)}
+footer .marca img{width:28px;height:28px}
+.aviso{max-width:78ch}
+.aviso b{color:var(--texto-2)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="barra">
-  <div class="barra-int">
-    <a class="marca" href="#inicio">Cuarta y <em>Corta</em></a>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#pronosticos">Pronósticos</a>
+  <div class="cont">
+    <a class="marca" href="#"><img src="img/icono-192.png" alt=""><span>Cuarta y <em>Corta</em></span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#semana">Esta semana</a>
+      <a href="#metodo">Cómo calculamos</a>
+      <a href="#historial">Historial</a>
       <a href="#planes">Planes</a>
-      <a href="#contacto">Contacto</a>
+      <a class="btn" href="#planes">Hazte Premium</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" id="inicio">
-  <div class="hero-int">
-    <h1>Deja de apostar por <span class="yarda">corazonada</span></h1>
-    <p>Cada martes recibes los partidos de la semana con su probabilidad calculada a partir de estadísticas, reporte de lesiones y cómo se ha movido la línea desde que abrió.</p>
-    <a class="boton" href="#pronosticos">Ver los pronósticos de esta semana</a>
+<div class="hero">
+  <div class="cont">
+    <div>
+      <span class="eti"><i></i><span id="eti-semana">Pronósticos de la semana</span></span>
+      <h1>Deja de apostar por <b>corazonada</b></h1>
+      <p class="sub">Cada martes calculamos la probabilidad de cada partido de la NFL con los momios del mercado, el reporte de lesiones y los días de descanso. Todo en español y explicado, para que decidas con datos.</p>
+      <div class="acciones">
+        <a class="btn" href="#semana">Ver los partidos de esta semana</a>
+        <a class="btn sec" href="#metodo">Cómo lo calculamos</a>
+      </div>
+    </div>
+    <div class="cifras" aria-label="Resumen de la semana">
+      <div class="cifra"><div class="n" id="c-partidos">—</div><div class="l">partidos analizados</div></div>
+      <div class="cifra"><div class="n oro" id="c-valor">—</div><div class="l">con valor según el modelo</div></div>
+      <div class="cifra"><div class="n" id="c-lesiones">—</div><div class="l">bajas que movieron el cálculo</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+<section id="semana">
+  <div class="cont">
+    <div class="cab">
+      <div>
+        <h2 id="titulo-semana">Esta semana</h2>
+        <p id="sub-semana">Horarios en hora del centro de México.</p>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar partidos">
+        <button class="chip" aria-pressed="true" data-f="todos">Todos</button>
+        <button class="chip" aria-pressed="false" data-f="valor">Con valor</button>
+      </div>
+    </div>
+    <div class="partidos" id="partidos"><p class="cargando">Cargando partidos…</p></div>
+    <p class="nota-semana">Los reportes de lesiones cambian durante la semana: el parte final sale el viernes. Ningún pronóstico garantiza un resultado.</p>
   </div>
 </section>
 
-<section class="muestra" id="pronosticos">
-  <div class="muestra-int">
-    <h2>Así se ve un pronóstico</h2>
-    <p>Este es el formato que recibes cada martes, uno por cada partido de la jornada.</p>
-
-    <div class="boleta">
-      <div class="boleta-encabezado">
-        <span>Semana 3</span>
-        <span>Domingo 12:00</span>
-      </div>
-
-      <div class="fila favorito">
-        <span class="equipo">Kansas City</span>
-        <span class="prob">63%</span>
-      </div>
-      <div class="riel destacado"><i style="width:63%"></i></div>
-
-      <div class="fila">
-        <span class="equipo">Buffalo</span>
-        <span class="prob">37%</span>
-      </div>
-      <div class="riel"><i style="width:37%"></i></div>
-
-      <p class="linea">La línea abrió en Kansas City −2.5 y hoy está en −4. El modelo la calcula en −3, así que a este precio el valor está del lado de Buffalo.</p>
-
-      <p class="rotulo">Todo partido empieza en 50%. Esto es lo que movió el resto:</p>
-      <ul class="variables">
-        <li><span>Kansas City promedia 6.8 yardas por jugada en tercera y larga</span><span class="peso">+6.1%</span></li>
-        <li><span>Buffalo reporta a su esquinero titular como duda</span><span class="peso">+3.4%</span></li>
-        <li><span>Buffalo jugó el jueves: tres días menos de descanso</span><span class="peso">+2.8%</span></li>
-      </ul>
-
-      <p class="nota-muestra">Partido y cifras ilustrativos para este mockup.</p>
+<section class="metodo" id="metodo">
+  <div class="cont">
+    <div class="cab"><div>
+      <h2>Cómo calculamos</h2>
+      <p>Sin cajas negras: cada partido muestra exactamente qué movió su probabilidad.</p>
+    </div></div>
+    <div class="pasos">
+      <div class="paso"><h3>Partimos del mercado</h3><p>Tomamos el moneyline actual y le quitamos la comisión de la casa. Esa es la probabilidad que el mercado le da a cada equipo.</p></div>
+      <div class="paso"><h3>Ajustamos por lesiones</h3><p>Cada titular fuera o en duda resta según su posición: un QB pesa mucho más que un apoyador. Aplicamos la mitad del ajuste porque la línea ya descuenta parte de las bajas.</p></div>
+      <div class="paso"><h3>Sumamos el descanso</h3><p>Un equipo que llega con más días de descanso gana hasta 3 puntos. Si nuestro número se separa 3 puntos o más del mercado, lo marcamos como <b style="color:var(--oro)">valor</b>.</p></div>
     </div>
   </div>
 </section>
 
-<section class="historial">
-  <div class="historial-int">
-    <h2>Cómo nos ha ido</h2>
-    <p>Publicamos el resultado de cada pronóstico, le atinemos o no. Estos son los tres años completos del modelo contra la línea de apertura.</p>
-
-    <div class="temporadas">
-      <div class="temporada">
-        <p class="anio">Temporada 2023</p>
-        <p class="pct">54.1%</p>
-        <p class="detalle">147 aciertos de 272 partidos</p>
-      </div>
-      <div class="temporada">
-        <p class="anio">Temporada 2024</p>
-        <p class="pct">55.3%</p>
-        <p class="detalle">150 aciertos de 272 partidos</p>
-      </div>
-      <div class="temporada">
-        <p class="anio">Temporada 2025</p>
-        <p class="pct">53.2%</p>
-        <p class="detalle">145 aciertos de 272 partidos</p>
-      </div>
+<section id="historial">
+  <div class="cont">
+    <div class="cab"><div>
+      <h2>Historial real</h2>
+      <p>Publicamos el resultado de cada pronóstico, le atinemos o no. Contamos si el favorito de nuestro modelo ganó el partido.</p>
+    </div></div>
+    <div class="hist">
+      <div class="grande"><div class="n" id="h-pct">—</div><p id="h-txt">Empezamos a medir en la Semana 5 de 2026.</p></div>
+      <div class="tabla"><table><thead><tr><th>Semana</th><th>Aciertos</th><th>%</th></tr></thead><tbody id="h-tabla"><tr><td colspan="3" class="vacio">La primera calificación se publica el martes después de la Semana 5.</td></tr></tbody></table></div>
     </div>
-
-    <p class="equilibrio">Un modelo necesita acertar 52.4% para salir tablas después de la comisión de la casa. Por eso no vas a ver aquí promesas de 70%: quien las hace, no está midiendo lo mismo.</p>
+    <p class="umbral">Para ganar dinero apostando contra la línea hay que acertar más de 52.4% (por la comisión de la casa). Si alguien te promete 70% u 80% constante, desconfía.</p>
   </div>
 </section>
 
-<main class="planes" id="planes">
-  <h2>Qué incluye tu cuenta</h2>
-  <p>El modelo se entrena con las últimas diez temporadas y se recalcula cada vez que cambia algo importante. Ningún pronóstico garantiza un resultado.</p>
-
-  <div class="tarjetas">
-    <article class="tarjeta">
-      <h3>Pronóstico semanal</h3>
-      <span class="dato">$149 al mes</span>
-      <p>Los partidos del domingo con probabilidad de ganador, línea sugerida y las tres variables que más pesaron en el cálculo.</p>
-    </article>
-
-    <article class="tarjeta">
-      <h3>Alerta de línea</h3>
-      <span class="dato">$99 al mes</span>
-      <p>Aviso al celular cuando una línea se mueve más de un punto y medio, con la explicación de qué la movió.</p>
-    </article>
-
-    <article class="tarjeta">
-      <h3>Reporte de lesiones</h3>
-      <span class="dato">Incluido en ambos planes</span>
-      <p>El parte oficial de cada equipo traducido al español y en contexto: qué tanto cambia el pronóstico si ese jugador no sale al campo.</p>
-    </article>
+<section id="planes" style="padding-top:20px">
+  <div class="cont">
+    <div class="cab"><div>
+      <h2>Planes</h2>
+      <p>Los partidos de esta página son gratis. Premium te da el análisis completo y avisos en tiempo real.</p>
+    </div></div>
+    <div class="planes">
+      <article class="plan dest">
+        <span class="tag">Más popular</span>
+        <h3>Pronóstico semanal</h3>
+        <div class="precio">$149 <small>MXN al mes</small></div>
+        <ul>
+          <li>Análisis completo de cada partido cada martes</li>
+          <li>Actualización del viernes con el parte final de lesiones</li>
+          <li>Línea sugerida y over/under del modelo</li>
+          <li>Reporte de lesiones en español</li>
+        </ul>
+        <a class="btn" data-plan="semanal" href="#contacto">Suscribirme</a>
+      </article>
+      <article class="plan">
+        <h3>Alertas de línea</h3>
+        <div class="precio">$99 <small>MXN al mes</small></div>
+        <ul>
+          <li>Aviso al celular cuando una línea se mueve más de 1.5 puntos</li>
+          <li>Explicación de qué la movió</li>
+          <li>Reporte de lesiones en español</li>
+        </ul>
+        <a class="btn sec" data-plan="alertas" href="#contacto">Suscribirme</a>
+      </article>
+    </div>
+    <p class="pago">Pagos seguros con Mercado Pago. Cancela cuando quieras.</p>
   </div>
+</section>
 </main>
 
-<footer class="pie" id="contacto">
-  <div class="pie-int">
-    <h2>Contacto</h2>
-    <p>Escríbenos a hola@cuartaycorta.mx o al 55 1234 5678. Respondemos de lunes a viernes.</p>
-    <p class="aviso">Cuarta y Corta ofrece análisis estadístico, no consejos de inversión ni resultados garantizados. Solo para mayores de 18 años. Si sientes que apostar dejó de ser un pasatiempo, en México puedes llamar a Jugadores Anónimos al 55 5273 0656.</p>
-    <p class="derechos">© 2026 Cuarta y Corta. Todos los derechos reservados. Proyecto de práctica: los porcentajes de acierto y los precios son ilustrativos, no corresponden a un servicio real.</p>
+<footer id="contacto">
+  <div class="cont">
+    <a class="marca" href="#"><img src="img/icono-192.png" alt=""><span>Cuarta y <em>Corta</em></span></a>
+    <p>Contacto: <a href="mailto:hola@cuartaycorta.mx">hola@cuartaycorta.mx</a></p>
+    <p class="aviso"><b>Juego responsable · Solo mayores de 18 años.</b> Cuarta y Corta ofrece análisis estadístico, no consejos de inversión ni resultados garantizados. Si sientes que apostar dejó de ser un pasatiempo, llama a la Línea de la Vida: 800 911 2000 (gratis, 24 horas).</p>
+    <p>Datos de partidos y momios: ESPN / DraftKings. Lesiones: reportes oficiales vía CBS Sports. © 2026 Cuarta y Corta.</p>
   </div>
 </footer>
 
+<script>
+// ▶ Pega aquí tus links de Mercado Pago cuando los tengas:
+const LINKS_MERCADO_PAGO = {
+  semanal: "",  // ej. "https://www.mercadopago.com.mx/subscriptions/checkout?preapproval_plan_id=..."
+  alertas: ""
+};
+
+const EQUIPOS = {ARI:"Cardinals",ATL:"Falcons",BAL:"Ravens",BUF:"Bills",CAR:"Panthers",CHI:"Bears",CIN:"Bengals",CLE:"Browns",DAL:"Cowboys",DEN:"Broncos",DET:"Lions",GB:"Packers",HOU:"Texans",IND:"Colts",JAX:"Jaguars",KC:"Chiefs",LAC:"Chargers",LAR:"Rams",LV:"Raiders",MIA:"Dolphins",MIN:"Vikings",NE:"Patriots",NO:"Saints",NYG:"Giants",NYJ:"Jets",PHI:"Eagles",PIT:"Steelers",SEA:"Seahawks",SF:"49ers",TB:"Buccaneers",TEN:"Titans",WSH:"Commanders"};
+const nom = a => EQUIPOS[a] || a;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtHora = iso => new Date(iso).toLocaleString("es-MX",{timeZone:"America/Mexico_City",weekday:"short",day:"numeric",month:"short",hour:"numeric",minute:"2-digit"});
+const fmtLinea = (abr, s) => s == null ? "—" : `${abr} ${s > 0 ? "+" + s : s}`;
+
+for (const a of document.querySelectorAll("[data-plan]")) {
+  const url = LINKS_MERCADO_PAGO[a.dataset.plan];
+  if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
+}
+
+function tarjeta(p) {
+  const pl = p.prob_modelo_local, pv = Math.round((100 - pl) * 10) / 10;
+  const favL = p.favorito === p.local;
+  const eq = (abr, pct, rec, fav) => `
+    <div class="equipo${fav ? " fav" : ""}">
+      <span class="nom">${esc(nom(abr))}<small>${esc(abr)}${rec ? " · " + esc(rec) : ""}</small></span>
+      <span class="pct">${Math.round(pct)}%</span>
+      <div class="riel"><i style="width:${pct}%"></i></div>
+    </div>`;
+  const factores = p.factores.length
+    ? `<ul class="factores">${p.factores.map(f => {
+        const quien = f.puntos > 0 ? p.local : p.visitante;
+        const val = f.informativo ? "↗" : `${quien} +${Math.abs(f.puntos).toFixed(1)}`;
+        return `<li><span>${esc(f.texto)}</span><span class="${f.informativo ? "info" : "mas"}">${esc(val)}</span></li>`;
+      }).join("")}</ul>`
+    : `<p class="vacio">Sin bajas relevantes: la probabilidad es la del mercado.</p>`;
+  const valor = p.valor ? `<div class="valor">★ <span><strong>Valor en ${esc(nom(p.valor))}.</strong> El modelo les da ${Math.abs(p.prob_modelo_local - p.prob_mercado_local).toFixed(1)} puntos más que el mercado.</span></div>` : "";
+  const mL = p.prob_mercado_local;
+  return `<article class="partido${p.valor ? " con-valor" : ""}" data-valor="${p.valor ? 1 : 0}">
+    <div class="p-cab"><b>${esc(fmtHora(p.fecha_utc))}</b><span>${esc(p.neutral ? p.ciudad + " · sede neutral" : p.estadio)}</span></div>
+    ${eq(p.visitante, pv, p.record_visitante, !favL)}
+    ${eq(p.local, pl, p.record_local, favL)}
+    ${valor}
+    ${factores}
+    <div class="mercado">
+      <span>Mercado: <b>${esc(p.local)} ${Math.round(mL)}%</b></span>
+      <span>Línea: <b>${esc(fmtLinea(p.local, p.spread_local))}</b>${p.spread_local_apertura != null && p.spread_local_apertura !== p.spread_local ? ` (abrió ${esc(fmtLinea(p.local, p.spread_local_apertura))})` : ""}</span>
+      <span>O/U: <b>${esc(p.over_under ?? "—")}</b></span>
+    </div>
+  </article>`;
+}
+
+async function cargar() {
+  const caja = document.getElementById("partidos");
+  try {
+    const d = await (await fetch("data/semana.json", {cache: "no-cache"})).json();
+    const act = new Date(d.actualizado + "T12:00:00").toLocaleDateString("es-MX", {day: "numeric", month: "long"});
+    document.getElementById("eti-semana").textContent = `Semana ${d.semana} · actualizado el ${act}`;
+    document.getElementById("titulo-semana").textContent = `Semana ${d.semana}`;
+    document.getElementById("sub-semana").textContent =
+      `Horarios en hora del centro de México.${d.descansan?.length ? " Descansan: " + d.descansan.map(nom).join(", ") + "." : ""}`;
+    document.getElementById("c-partidos").textContent = d.partidos.length;
+    document.getElementById("c-valor").textContent = d.partidos.filter(p => p.valor).length;
+    document.getElementById("c-lesiones").textContent = d.partidos.reduce((n, p) => n + p.factores.filter(f => !f.informativo && !/descanso/.test(f.texto)).length, 0);
+    caja.innerHTML = d.partidos.map(tarjeta).join("");
+  } catch (e) {
+    caja.innerHTML = `<p class="cargando">No pudimos cargar los partidos. Intenta de nuevo en un momento.</p>`;
+  }
+  try {
+    const h = await (await fetch("data/historial.json", {cache: "no-cache"})).json();
+    if (h.jugados > 0) {
+      document.getElementById("h-pct").textContent = (h.aciertos / h.jugados * 100).toFixed(1) + "%";
+      document.getElementById("h-txt").textContent = `${h.aciertos} aciertos de ${h.jugados} partidos desde la ${h.desde}.`;
+      document.getElementById("h-tabla").innerHTML = h.semanas.slice().reverse().map(s =>
+        `<tr><td>Semana ${s.semana}</td><td>${s.aciertos} de ${s.jugados}</td><td>${(s.aciertos / s.jugados * 100).toFixed(0)}%</td></tr>`).join("");
+    } else {
+      document.getElementById("h-pct").textContent = "En curso";
+    }
+  } catch (e) {}
+}
+
+for (const b of document.querySelectorAll(".chip")) {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+    const solo = b.dataset.f === "valor";
+    document.querySelectorAll(".partido").forEach(p => p.hidden = solo && p.dataset.valor !== "1");
+  });
+}
+cargar();
+</script>
 </body>
 </html>
