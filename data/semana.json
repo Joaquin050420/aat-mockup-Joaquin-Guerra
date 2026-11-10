@@ -31,7 +31,9 @@
           "texto": "Baker Mayfield (QB, TB) fuera",
           "puntos": 3.0
         }
-      ]
+      ],
+      "momio_local": -150,
+      "momio_visitante": 130
     },
     {
       "id": "401872981",
@@ -52,7 +54,9 @@
       "ajuste_local": 0.2,
       "favorito": "PHI",
       "valor": null,
-      "factores": []
+      "factores": [],
+      "momio_local": 150,
+      "momio_visitante": -110
     },
     {
       "id": "401872984",
@@ -73,7 +77,9 @@
       "ajuste_local": 0.0,
       "favorito": "HOU",
       "valor": null,
-      "factores": []
+      "factores": [],
+      "momio_local": "",
+      "momio_visitante": "abc"
     },
     {
       "id": "401872982",
