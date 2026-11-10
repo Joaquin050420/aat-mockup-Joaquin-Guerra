@@ -114,6 +114,7 @@ def calcular(entrada):
             "record_local": entrada.get("records", {}).get(loc),
             "record_visitante": entrada.get("records", {}).get(vis),
             "spread_local": p.get("spread_local"), "spread_local_apertura": p.get("spread_local_apertura"),
+            **{k: p[k] for k in ("momio_local", "momio_visitante") if k in p},
             "over_under": p.get("over_under"),
             "prob_mercado_local": round(mercado, 1), "prob_apertura_local": round(apertura, 1),
             "prob_modelo_local": round(modelo, 1), "ajuste_local": round(ajuste, 1),
