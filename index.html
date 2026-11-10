@@ -295,6 +295,21 @@ for (const a of document.querySelectorAll("[data-plan]")) {
   if (url) { a.href = url; a.target = "_blank"; a.rel = "noopener"; }
 }
 
+// ▼ Probabilidad implícita del momio americano (ver bitácora, Paso 1)
+// Devuelve un texto como "60.0 %" o null si el momio no es válido (vacío, texto, o con valor absoluto menor a 100).
+function probImplicita(momio) {
+  if (momio === null || momio === undefined || (typeof momio === "string" && momio.trim() === "")) return null;
+  const m = Number(momio);
+  if (!Number.isInteger(m) || Math.abs(m) < 100) return null; // el momio americano mínimo es ±100
+  const p = m < 0 ? Math.abs(m) / (Math.abs(m) + 100) : 100 / (m + 100);
+  return (p * 100).toFixed(1) + " %";
+}
+function fmtMomio(abr, momio) {
+  const pr = probImplicita(momio);
+  return pr === null ? `${abr}: Momio no válido` : `${abr} ${Number(momio) > 0 ? "+" : ""}${Number(momio)} → ${pr}`;
+}
+// ▲ fin probabilidad implícita
+
 function tarjeta(p) {
   const pl = p.prob_modelo_local, pv = Math.round((100 - pl) * 10) / 10;
   const favL = p.favorito === p.local;
@@ -323,7 +338,10 @@ function tarjeta(p) {
       <span>Mercado: <b>${esc(p.local)} ${Math.round(mL)}%</b></span>
       <span>Línea: <b>${esc(fmtLinea(p.local, p.spread_local))}</b>${p.spread_local_apertura != null && p.spread_local_apertura !== p.spread_local ? ` (abrió ${esc(fmtLinea(p.local, p.spread_local_apertura))})` : ""}</span>
       <span>O/U: <b>${esc(p.over_under ?? "—")}</b></span>
-    </div>
+    </div>${("momio_local" in p || "momio_visitante" in p) ? `
+    <div class="mercado">
+      <span>Prob. implícita del momio (incluye margen de la casa): <b>${esc(fmtMomio(p.visitante, p.momio_visitante))}</b> · <b>${esc(fmtMomio(p.local, p.momio_local))}</b></span>
+    </div>` : ""}
   </article>`;
 }
 
