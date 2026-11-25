@@ -1,56 +1,414 @@
 {
-  "temporada": 2026,
-  "semana": 5,
-  "actualizado": "2026-10-05",
-  "descansan": ["KC", "CAR"],
-  "records": {"NYG":"3-1","PHI":"2-2","DAL":"2-2","WSH":"1-3","MIN":"4-0","CHI":"3-1","DET":"2-2","GB":"2-2","CAR":"2-2","ATL":"1-2","NO":"1-2","TB":"0-4","SF":"4-0","SEA":"3-1","LAR":"2-2","ARI":"1-3","BUF":"3-1","NE":"2-2","NYJ":"1-3","MIA":"0-4","CLE":"3-1","BAL":"3-1","PIT":"2-2","CIN":"2-2","JAX":"3-1","IND":"2-2","TEN":"0-4","HOU":"0-4","KC":"4-0","LV":"3-1","DEN":"2-2","LAC":"0-4"},
-  "ultimo_partido": {"PIT":"2026-10-02T00:15Z","CLE":"2026-10-02T00:15Z","IND":"2026-10-04T13:30Z","WSH":"2026-10-04T13:30Z","NE":"2026-10-04T17:00Z","BUF":"2026-10-04T17:00Z","NYJ":"2026-10-04T17:00Z","CHI":"2026-10-04T17:00Z","JAX":"2026-10-04T17:00Z","CIN":"2026-10-04T17:00Z","ARI":"2026-10-04T17:00Z","NYG":"2026-10-04T17:00Z","LAR":"2026-10-04T17:00Z","PHI":"2026-10-04T17:00Z","GB":"2026-10-04T17:00Z","TB":"2026-10-04T17:00Z","TEN":"2026-10-04T17:00Z","BAL":"2026-10-04T17:00Z","DAL":"2026-10-04T17:00Z","HOU":"2026-10-04T17:00Z","MIA":"2026-10-04T20:05Z","MIN":"2026-10-04T20:05Z","KC":"2026-10-04T20:25Z","LV":"2026-10-04T20:25Z","DEN":"2026-10-04T20:25Z","SF":"2026-10-04T20:25Z","LAC":"2026-10-04T20:25Z","SEA":"2026-10-04T20:25Z","DET":"2026-10-05T00:20Z","CAR":"2026-10-05T00:20Z","ATL":"2026-10-06T00:15Z","NO":"2026-10-06T00:15Z"},
-  "partidos": [
-    {"id":"401872980","fecha_utc":"2026-10-09T00:15Z","visitante":"TB","local":"DAL","estadio":"AT&T Stadium","ciudad":"Arlington, TX","neutral":false,"spread_local":-3.5,"spread_local_apertura":-3.5,"over_under":52.5,"ml_local":-205,"ml_visitante":170,"ml_local_apertura":-205,"ml_visitante_apertura":170,
-     "lesiones":{"TB":[{"jugador":"Baker Mayfield","pos":"QB","estatus":"Out","titular":true},{"jugador":"Antoine Winfield Jr.","pos":"S","estatus":"Questionable","titular":true},{"jugador":"SirVocea Dennis","pos":"LB","estatus":"Questionable","titular":true},{"jugador":"Jalen McMillan","pos":"WR","estatus":"Injured Reserve","titular":true}],
-                 "DAL":[{"jugador":"Tyler Smith","pos":"OL","estatus":"Injured Reserve","titular":true},{"jugador":"Jalen Thompson","pos":"S","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872981","fecha_utc":"2026-10-11T13:30Z","visitante":"PHI","local":"JAX","estadio":"Tottenham Hotspur Stadium","ciudad":"Londres","neutral":true,"spread_local":1.5,"spread_local_apertura":2.5,"over_under":45.5,"ml_local":105,"ml_visitante":-125,"ml_local_apertura":110,"ml_visitante_apertura":-130,
-     "lesiones":{"PHI":[{"jugador":"Saquon Barkley","pos":"RB","estatus":"Questionable","titular":true},{"jugador":"Jonathan Greenard","pos":"EDGE","estatus":"Questionable","titular":true},{"jugador":"Quinyon Mitchell","pos":"CB","estatus":"Questionable","titular":true},{"jugador":"Landon Dickerson","pos":"OL","estatus":"Injured Reserve","titular":true}],
-                 "JAX":[{"jugador":"Montaric Brown","pos":"CB","estatus":"Questionable","titular":true},{"jugador":"Eric Murray","pos":"S","estatus":"Questionable","titular":true},{"jugador":"Patrick Mekari","pos":"OL","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872984","fecha_utc":"2026-10-11T17:00Z","visitante":"HOU","local":"TEN","estadio":"Nissan Stadium","ciudad":"Nashville, TN","neutral":false,"spread_local":3.5,"spread_local_apertura":3.5,"over_under":43.5,"ml_local":154,"ml_visitante":-185,"ml_local_apertura":160,"ml_visitante_apertura":-192,
-     "lesiones":{"HOU":[{"jugador":"Jayden Higgins","pos":"WR","estatus":"Injured Reserve","titular":true},{"jugador":"Henry To'oTo'o","pos":"LB","estatus":"Injured Reserve","titular":true},{"jugador":"Braden Smith","pos":"OL","estatus":"Injured Reserve","titular":true}],
-                 "TEN":[{"jugador":"Jackson Slater","pos":"OL","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872982","fecha_utc":"2026-10-11T17:00Z","visitante":"CIN","local":"MIA","estadio":"Hard Rock Stadium","ciudad":"Miami Gardens, FL","neutral":false,"spread_local":6,"spread_local_apertura":5.5,"over_under":49.5,"ml_local":225,"ml_visitante":-278,"ml_local_apertura":205,"ml_visitante_apertura":-250,
-     "lesiones":{"CIN":[{"jugador":"Ja'Marr Chase","pos":"WR","estatus":"Out","titular":true},{"jugador":"Tee Higgins","pos":"WR","estatus":"Questionable","titular":true},{"jugador":"B.J. Hill","pos":"DL","estatus":"Questionable","titular":true},{"jugador":"Bryan Cook","pos":"S","estatus":"Questionable","titular":true}],
-                 "MIA":[{"jugador":"Tyreek Hill","pos":"WR","estatus":"Out","titular":true},{"jugador":"De'Von Achane","pos":"RB","estatus":"Injured Reserve","titular":true},{"jugador":"Kenneth Grant","pos":"DL","estatus":"Injured Reserve","titular":true},{"jugador":"Dante Trader Jr.","pos":"S","estatus":"Questionable","titular":true}]}},
-    {"id":"401872986","fecha_utc":"2026-10-11T17:00Z","visitante":"LV","local":"NE","estadio":"Gillette Stadium","ciudad":"Foxborough, MA","neutral":false,"spread_local":-8.5,"spread_local_apertura":-8.5,"over_under":44.5,"ml_local":-395,"ml_visitante":310,"ml_local_apertura":-425,"ml_visitante_apertura":330,
-     "lesiones":{"LV":[{"jugador":"Christian Wilkins","pos":"DL","estatus":"Questionable","titular":true},{"jugador":"Jalen Nailor","pos":"WR","estatus":"Questionable","titular":true},{"jugador":"Trey Zuhn III","pos":"OL","estatus":"Questionable","titular":true}],
-                 "NE":[{"jugador":"A.J. Brown","pos":"WR","estatus":"Injured Reserve","titular":true},{"jugador":"Mike Onwenu","pos":"OL","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872987","fecha_utc":"2026-10-11T17:00Z","visitante":"MIN","local":"NO","estadio":"Caesars Superdome","ciudad":"Nueva Orleans, LA","neutral":false,"spread_local":1.5,"spread_local_apertura":1.5,"over_under":44.5,"ml_local":105,"ml_visitante":-125,"ml_local_apertura":100,"ml_visitante_apertura":-120,
-     "lesiones":{"MIN":[{"jugador":"Justin Jefferson","pos":"WR","estatus":"Questionable","titular":true},{"jugador":"Christian Darrisaw","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Donovan Jackson","pos":"OL","estatus":"Out","titular":true},{"jugador":"Jordan Mason","pos":"RB","estatus":"Injured Reserve","titular":true}],
-                 "NO":[{"jugador":"Kelvin Banks Jr.","pos":"OL","estatus":"Injured Reserve","titular":true},{"jugador":"Bryan Bresee","pos":"DL","estatus":"Injured Reserve","titular":true},{"jugador":"Travis Etienne","pos":"RB","estatus":"Injured Reserve","titular":true},{"jugador":"Pete Werner","pos":"LB","estatus":"Questionable","titular":true},{"jugador":"Noah Fant","pos":"TE","estatus":"Questionable","titular":true}]}},
-    {"id":"401872983","fecha_utc":"2026-10-11T17:00Z","visitante":"CLE","local":"NYJ","estadio":"MetLife Stadium","ciudad":"East Rutherford, NJ","neutral":false,"spread_local":-1.5,"spread_local_apertura":-1.5,"over_under":39.5,"ml_local":-130,"ml_visitante":110,"ml_local_apertura":-125,"ml_visitante_apertura":105,
-     "lesiones":{"CLE":[{"jugador":"Mason Graham","pos":"DL","estatus":"Questionable","titular":true},{"jugador":"Teven Jenkins","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Alex Wright","pos":"EDGE","estatus":"Injured Reserve","titular":true}],
-                 "NYJ":[{"jugador":"Breece Hall","pos":"RB","estatus":"Doubtful","titular":true},{"jugador":"Mason Taylor","pos":"TE","estatus":"Doubtful","titular":true},{"jugador":"Adonai Mitchell","pos":"WR","estatus":"Doubtful","titular":true},{"jugador":"Dylan Parham","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Jarvis Brownlee Jr.","pos":"CB","estatus":"Questionable","titular":true}]}},
-    {"id":"401872985","fecha_utc":"2026-10-11T17:00Z","visitante":"IND","local":"PIT","estadio":"Acrisure Stadium","ciudad":"Pittsburgh, PA","neutral":false,"spread_local":-2.5,"spread_local_apertura":-2.5,"over_under":47.5,"ml_local":-142,"ml_visitante":120,"ml_local_apertura":-135,"ml_visitante_apertura":114,
-     "lesiones":{"IND":[{"jugador":"Alec Pierce","pos":"WR","estatus":"Injured Reserve","titular":true},{"jugador":"Mike Hilton","pos":"CB","estatus":"Questionable","titular":true}],
-                 "PIT":[{"jugador":"Jamel Dean","pos":"CB","estatus":"Doubtful","titular":true},{"jugador":"Derrick Harmon","pos":"DL","estatus":"Doubtful","titular":true},{"jugador":"DeShon Elliott","pos":"S","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872988","fecha_utc":"2026-10-11T17:00Z","visitante":"NYG","local":"WSH","estadio":"Northwest Stadium","ciudad":"Landover, MD","neutral":false,"spread_local":-1.5,"spread_local_apertura":-2.5,"over_under":48.5,"ml_local":-130,"ml_visitante":110,"ml_local_apertura":-135,"ml_visitante_apertura":114,
-     "lesiones":{"NYG":[{"jugador":"Jaxson Dart","pos":"QB","estatus":"Injured Reserve","titular":true},{"jugador":"Brian Burns","pos":"EDGE","estatus":"Injured Reserve","titular":true},{"jugador":"Paulson Adebo","pos":"CB","estatus":"Injured Reserve","titular":true},{"jugador":"Chauncey Golston","pos":"EDGE","estatus":"Questionable","titular":true},{"jugador":"Jason Pinnock","pos":"S","estatus":"Questionable","titular":true}],
-                 "WSH":[{"jugador":"Marcus Mariota","pos":"QB","estatus":"Doubtful","titular":true},{"jugador":"Laremy Tunsil","pos":"OL","estatus":"Injured Reserve","titular":true},{"jugador":"Johnny Newton","pos":"DL","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872989","fecha_utc":"2026-10-11T20:05Z","visitante":"DEN","local":"LAC","estadio":"SoFi Stadium","ciudad":"Inglewood, CA","neutral":false,"spread_local":-2.5,"spread_local_apertura":-2.5,"over_under":44.5,"ml_local":-142,"ml_visitante":120,"ml_local_apertura":-142,"ml_visitante_apertura":120,
-     "lesiones":{"DEN":[{"jugador":"Patrick Surtain II","pos":"CB","estatus":"Questionable","titular":true},{"jugador":"Riley Moss","pos":"CB","estatus":"Questionable","titular":true}],
-                 "LAC":[{"jugador":"Rashawn Slater","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Joe Alt","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Ladd McConkey","pos":"WR","estatus":"Questionable","titular":true},{"jugador":"Trevor Penning","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"Donte Jackson","pos":"CB","estatus":"Questionable","titular":true},{"jugador":"David Njoku","pos":"TE","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872990","fecha_utc":"2026-10-11T20:25Z","visitante":"CHI","local":"GB","estadio":"Lambeau Field","ciudad":"Green Bay, WI","neutral":false,"spread_local":-3,"spread_local_apertura":-3,"over_under":49.5,"ml_local":-166,"ml_visitante":140,"ml_local_apertura":-166,"ml_visitante_apertura":140,
-     "lesiones":{"CHI":[{"jugador":"Caleb Williams","pos":"QB","estatus":"Out","titular":true},{"jugador":"Braxton Jones","pos":"OL","estatus":"Injured Reserve","titular":true}],
-                 "GB":[{"jugador":"Edgerrin Cooper","pos":"LB","estatus":"Questionable","titular":true}]}},
-    {"id":"401872991","fecha_utc":"2026-10-11T20:25Z","visitante":"DET","local":"ARI","estadio":"State Farm Stadium","ciudad":"Glendale, AZ","neutral":false,"spread_local":8.5,"spread_local_apertura":8.5,"over_under":48.5,"ml_local":300,"ml_visitante":-380,"ml_local_apertura":310,"ml_visitante_apertura":-395,
-     "lesiones":{"DET":[{"jugador":"Mason Miller","pos":"OL","estatus":"Out","titular":true}],
-                 "ARI":[{"jugador":"J. Conner","pos":"RB","estatus":"Injured Reserve","titular":true},{"jugador":"J. Williams","pos":"OL","estatus":"Questionable","titular":true},{"jugador":"I. Adams","pos":"OL","estatus":"Questionable","titular":true}]}},
-    {"id":"401872992","fecha_utc":"2026-10-11T20:25Z","visitante":"SF","local":"SEA","estadio":"Lumen Field","ciudad":"Seattle, WA","neutral":false,"spread_local":-3.5,"spread_local_apertura":-3.5,"over_under":48.5,"ml_local":-205,"ml_visitante":170,"ml_local_apertura":-198,"ml_visitante_apertura":164,
-     "lesiones":{"SF":[{"jugador":"Ricky Pearsall","pos":"WR","estatus":"Injured Reserve","titular":true},{"jugador":"Christian Kirk","pos":"WR","estatus":"Injured Reserve","titular":true},{"jugador":"Marques Sigle","pos":"S","estatus":"Questionable","titular":true},{"jugador":"Kyle Juszczyk","pos":"RB","estatus":"Questionable","titular":true}],
-                 "SEA":[{"jugador":"Jadarian Price","pos":"RB","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872993","fecha_utc":"2026-10-12T00:20Z","visitante":"BAL","local":"ATL","estadio":"Mercedes-Benz Stadium","ciudad":"Atlanta, GA","neutral":false,"spread_local":4.5,"spread_local_apertura":4.5,"over_under":48.5,"ml_local":170,"ml_visitante":-205,"ml_local_apertura":180,"ml_visitante_apertura":-218,
-     "lesiones":{"BAL":[{"jugador":"Ethan Pocic","pos":"OL","estatus":"Injured Reserve","titular":true}],
-                 "ATL":[{"jugador":"A.J. Terrell","pos":"CB","estatus":"Injured Reserve","titular":true},{"jugador":"Jalon Walker","pos":"LB","estatus":"Injured Reserve","titular":true}]}},
-    {"id":"401872994","fecha_utc":"2026-10-13T00:15Z","visitante":"BUF","local":"LAR","estadio":"SoFi Stadium","ciudad":"Inglewood, CA","neutral":false,"spread_local":-3,"spread_local_apertura":-3,"over_under":53.5,"ml_local":-166,"ml_visitante":140,"ml_local_apertura":-155,"ml_visitante_apertura":130,
-     "lesiones":{"BUF":[{"jugador":"DJ Moore","pos":"WR","estatus":"Questionable","titular":true},{"jugador":"Ed Oliver","pos":"DL","estatus":"Questionable","titular":true},{"jugador":"Jordan Poyer","pos":"S","estatus":"Questionable","titular":true}],
-                 "LAR":[{"jugador":"Myles Garrett","pos":"EDGE","estatus":"Injured Reserve","titular":true},{"jugador":"Terrance Ferguson","pos":"TE","estatus":"Injured Reserve","titular":true}]}}
-  ],
-  "fuentes": ["https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2026/types/2/weeks/5/events", "DraftKings vía ESPN (odds por partido)", "https://www.cbssports.com/nfl/injuries/"]
+ "temporada": 2026,
+ "semana": 12,
+ "actualizado": "2026-11-24",
+ "descansan": [],
+ "records": {},
+ "ultimo_partido": {},
+ "partidos": [
+  {
+   "id": "2026-S12-GB-LAR",
+   "fecha_utc": "2026-11-26T01:00Z",
+   "visitante": "GB",
+   "local": "LAR",
+   "estadio": "SoFi Stadium",
+   "ciudad": "Inglewood, CA",
+   "neutral": false,
+   "spread_local": -2.5,
+   "spread_local_apertura": -3.5,
+   "over_under": 44.5,
+   "ml_local": -153,
+   "ml_visitante": 128,
+   "ml_local_apertura": -200,
+   "ml_visitante_apertura": 165,
+   "lesiones": {
+    "LAR": [
+     {
+      "jugador": "Coleman Shelton",
+      "pos": "OL",
+      "estatus": "Out",
+      "titular": true
+     },
+     {
+      "jugador": "Steve Avila",
+      "pos": "OL",
+      "estatus": "Out",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-CHI-DET",
+   "fecha_utc": "2026-11-26T18:00Z",
+   "visitante": "CHI",
+   "local": "DET",
+   "estadio": "Ford Field",
+   "ciudad": "Detroit, MI",
+   "neutral": false,
+   "spread_local": 2.5,
+   "spread_local_apertura": 2.5,
+   "over_under": 55.5,
+   "ml_local": 115,
+   "ml_visitante": -135,
+   "ml_local_apertura": 115,
+   "ml_visitante_apertura": -135,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-PHI-DAL",
+   "fecha_utc": "2026-11-26T21:30Z",
+   "visitante": "PHI",
+   "local": "DAL",
+   "estadio": "AT&T Stadium",
+   "ciudad": "Arlington, TX",
+   "neutral": false,
+   "spread_local": -8.5,
+   "spread_local_apertura": -8.5,
+   "over_under": 47.5,
+   "ml_local": -450,
+   "ml_visitante": 350,
+   "ml_local_apertura": -475,
+   "ml_visitante_apertura": 375,
+   "lesiones": {
+    "DAL": [
+     {
+      "jugador": "Tyler Booker",
+      "pos": "OL",
+      "estatus": "Out",
+      "titular": true
+     }
+    ],
+    "PHI": [
+     {
+      "jugador": "Lane Johnson",
+      "pos": "OL",
+      "estatus": "Out",
+      "titular": true
+     },
+     {
+      "jugador": "Tanner McKee",
+      "pos": "QB",
+      "estatus": "Questionable",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-KC-BUF",
+   "fecha_utc": "2026-11-27T01:20Z",
+   "visitante": "KC",
+   "local": "BUF",
+   "estadio": "Highmark Stadium",
+   "ciudad": "Orchard Park, NY",
+   "neutral": false,
+   "spread_local": -2.5,
+   "spread_local_apertura": -2.5,
+   "over_under": 47.5,
+   "ml_local": -154,
+   "ml_visitante": 129,
+   "ml_local_apertura": -145,
+   "ml_visitante_apertura": 125,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-DEN-PIT",
+   "fecha_utc": "2026-11-27T20:00Z",
+   "visitante": "DEN",
+   "local": "PIT",
+   "estadio": "Acrisure Stadium",
+   "ciudad": "Pittsburgh, PA",
+   "neutral": false,
+   "spread_local": 2.5,
+   "spread_local_apertura": 2.5,
+   "over_under": 37.5,
+   "ml_local": 128,
+   "ml_visitante": -153,
+   "ml_local_apertura": 120,
+   "ml_visitante_apertura": -140,
+   "lesiones": {
+    "PIT": [
+     {
+      "jugador": "Alex Highsmith",
+      "pos": "LB",
+      "estatus": "Doubtful",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-NYG-IND",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "NYG",
+   "local": "IND",
+   "estadio": "Lucas Oil Stadium",
+   "ciudad": "Indianapolis, IN",
+   "neutral": false,
+   "spread_local": 6.5,
+   "spread_local_apertura": 7,
+   "over_under": 42.5,
+   "ml_local": 260,
+   "ml_visitante": -320,
+   "ml_local_apertura": 280,
+   "ml_visitante_apertura": -350,
+   "lesiones": {
+    "NYG": [
+     {
+      "jugador": "Greg Newsome II",
+      "pos": "CB",
+      "estatus": "Out",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-ATL-MIN",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "ATL",
+   "local": "MIN",
+   "estadio": "U.S. Bank Stadium",
+   "ciudad": "Minneapolis, MN",
+   "neutral": false,
+   "spread_local": -7.5,
+   "spread_local_apertura": -7,
+   "over_under": 42.5,
+   "ml_local": -340,
+   "ml_visitante": 270,
+   "ml_local_apertura": -300,
+   "ml_visitante_apertura": 250,
+   "lesiones": {
+    "MIN": [
+     {
+      "jugador": "Jordan Addison",
+      "pos": "WR",
+      "estatus": "Doubtful",
+      "titular": true
+     },
+     {
+      "jugador": "Kyler Murray",
+      "pos": "QB",
+      "estatus": "Questionable",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-TEN-JAX",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "TEN",
+   "local": "JAX",
+   "estadio": "EverBank Stadium",
+   "ciudad": "Jacksonville, FL",
+   "neutral": false,
+   "spread_local": -14.5,
+   "spread_local_apertura": -14,
+   "over_under": 47.5,
+   "ml_local": -1100,
+   "ml_visitante": 700,
+   "ml_local_apertura": -1100,
+   "ml_visitante_apertura": 750,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-BAL-HOU",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "BAL",
+   "local": "HOU",
+   "estadio": "NRG Stadium",
+   "ciudad": "Houston, TX",
+   "neutral": false,
+   "spread_local": -6.5,
+   "spread_local_apertura": -6.5,
+   "over_under": 46.5,
+   "ml_local": -310,
+   "ml_visitante": 250,
+   "ml_local_apertura": -300,
+   "ml_visitante_apertura": 250,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-NO-CIN",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "NO",
+   "local": "CIN",
+   "estadio": "Paycor Stadium",
+   "ciudad": "Cincinnati, OH",
+   "neutral": false,
+   "spread_local": -10.5,
+   "spread_local_apertura": -10,
+   "over_under": 51.5,
+   "ml_local": -650,
+   "ml_visitante": 475,
+   "ml_local_apertura": -600,
+   "ml_visitante_apertura": 450,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-NYJ-MIA",
+   "fecha_utc": "2026-11-29T18:00Z",
+   "visitante": "NYJ",
+   "local": "MIA",
+   "estadio": "Hard Rock Stadium",
+   "ciudad": "Miami Gardens, FL",
+   "neutral": false,
+   "spread_local": 3.5,
+   "spread_local_apertura": 4,
+   "over_under": 41.5,
+   "ml_local": 175,
+   "ml_visitante": -210,
+   "ml_local_apertura": 175,
+   "ml_visitante_apertura": -210,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-NE-LAC",
+   "fecha_utc": "2026-11-29T21:05Z",
+   "visitante": "NE",
+   "local": "LAC",
+   "estadio": "SoFi Stadium",
+   "ciudad": "Inglewood, CA",
+   "neutral": false,
+   "spread_local": -1.5,
+   "spread_local_apertura": -3.5,
+   "over_under": 35.5,
+   "ml_local": -118,
+   "ml_visitante": -102,
+   "ml_local_apertura": -200,
+   "ml_visitante_apertura": 165,
+   "lesiones": {
+    "LAC": [
+     {
+      "jugador": "Justin Herbert",
+      "pos": "QB",
+      "estatus": "Questionable",
+      "titular": true
+     }
+    ],
+    "NE": [
+     {
+      "jugador": "Drake Maye",
+      "pos": "QB",
+      "estatus": "Out",
+      "titular": true
+     },
+     {
+      "jugador": "A.J. Brown",
+      "pos": "WR",
+      "estatus": "Doubtful",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-WSH-ARI",
+   "fecha_utc": "2026-11-29T21:25Z",
+   "visitante": "WSH",
+   "local": "ARI",
+   "estadio": "State Farm Stadium",
+   "ciudad": "Glendale, AZ",
+   "neutral": false,
+   "spread_local": 7.5,
+   "spread_local_apertura": 7,
+   "over_under": 40.5,
+   "ml_local": 275,
+   "ml_visitante": -350,
+   "ml_local_apertura": 275,
+   "ml_visitante_apertura": -350,
+   "lesiones": {
+    "ARI": [
+     {
+      "jugador": "Carson Beck",
+      "pos": "QB",
+      "estatus": "Questionable",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-SEA-SF",
+   "fecha_utc": "2026-11-29T21:25Z",
+   "visitante": "SEA",
+   "local": "SF",
+   "estadio": "Levi's Stadium",
+   "ciudad": "Santa Clara, CA",
+   "neutral": false,
+   "spread_local": -3.5,
+   "spread_local_apertura": -2,
+   "over_under": 46.5,
+   "ml_local": -176,
+   "ml_visitante": 148,
+   "ml_local_apertura": -130,
+   "ml_visitante_apertura": 110,
+   "lesiones": {
+    "SF": [
+     {
+      "jugador": "Colton McKivitz",
+      "pos": "OL",
+      "estatus": "Out",
+      "titular": true
+     }
+    ],
+    "SEA": [
+     {
+      "jugador": "Quenton Nelson",
+      "pos": "OL",
+      "estatus": "Doubtful",
+      "titular": true
+     },
+     {
+      "jugador": "Sam Darnold",
+      "pos": "QB",
+      "estatus": "Questionable",
+      "titular": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "2026-S12-LV-CLE",
+   "fecha_utc": "2026-11-30T01:20Z",
+   "visitante": "LV",
+   "local": "CLE",
+   "estadio": "Huntington Bank Field",
+   "ciudad": "Cleveland, OH",
+   "neutral": false,
+   "spread_local": -4.5,
+   "spread_local_apertura": -5,
+   "over_under": 41.5,
+   "ml_local": -235,
+   "ml_visitante": 190,
+   "ml_local_apertura": -225,
+   "ml_visitante_apertura": 190,
+   "lesiones": {}
+  },
+  {
+   "id": "2026-S12-CAR-TB",
+   "fecha_utc": "2026-12-01T01:15Z",
+   "visitante": "CAR",
+   "local": "TB",
+   "estadio": "Raymond James Stadium",
+   "ciudad": "Tampa, FL",
+   "neutral": false,
+   "spread_local": -2.5,
+   "spread_local_apertura": -2.5,
+   "over_under": 43.5,
+   "ml_local": -157,
+   "ml_visitante": 132,
+   "ml_local_apertura": null,
+   "ml_visitante_apertura": null,
+   "lesiones": {}
+  }
+ ],
+ "fuentes": [
+  "Momios y spreads actuales: bet365 vía Fox Sports (al 23-nov-2026); O/U de Chiefs-Bills: VegasInsider y Covers",
+  "Apertura: VegasInsider (Borgata / BetMGM); apertura de Panthers-Buccaneers no disponible",
+  "Lesiones: https://www.cbssports.com/nfl/injuries/ (estatus para la Semana 12, consultado 24-nov-2026)",
+  "Récords y días de descanso: no se publicaron esta semana porque las fuentes consultadas no coincidían"
+ ]
 }
